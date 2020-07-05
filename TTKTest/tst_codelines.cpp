@@ -3,7 +3,6 @@
 
 #include <QDir>
 #include <QMap>
-#include <QDebug>
 #include <QFileInfo>
 #include <functional>
 #ifdef TTK_GREATER_NEW
@@ -38,7 +37,7 @@ void CodeLinesTest::codeLines()
     int fileCount = 0, lineCount = 0;
 
     QString currentPath = "../";
-    if( currentPath.isEmpty() )
+    if(currentPath.isEmpty())
     {
         return;
     }
@@ -50,9 +49,9 @@ void CodeLinesTest::codeLines()
     QMap<QString, int> categorys;
 
     QEventLoop eventLoop;
-    QtConcurrent::run( [&]()
+    QtConcurrent::run([&]()
     {
-        foreachFileFromDirectory( { currentPath }, [&](const QFileInfo &info)
+        foreachFileFromDirectory({ currentPath }, [&](const QFileInfo &info)
         {
             QString suffix = info.suffix().toLower();
             if(suffix.isEmpty())
@@ -83,14 +82,14 @@ void CodeLinesTest::codeLines()
         }, true);
 
         eventLoop.quit();
-    } );
+    });
     eventLoop.exec();
 
-    qDebug() << "All File Count " << fileCount;
-    qDebug() << "All Meet The Requirements Line Count " << lineCount;
+    TTK_LOGGER_INFO("All File Count " << fileCount);
+    TTK_LOGGER_INFO("All Meet The Requirements Line Count " << lineCount);
     foreach(const QString &key, categorys.keys())
     {
-        qDebug() << QString(".%1 Type  All count %2").arg(key).arg(categorys[key]);
+        TTK_LOGGER_INFO(QString(".%1 Type  All count %2").arg(key).arg(categorys[key]));
     }
 }
 

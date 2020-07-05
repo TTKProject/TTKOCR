@@ -29,22 +29,19 @@
 class OCR_WIDGET_EXPORT OCRAbstractMoveDialog : public QDialog
 {
     Q_OBJECT
+    TTK_DECLARE_MODULE(OCRAbstractMoveDialog)
 public:
     /*!
      * Object contsructor.
      */
-    explicit OCRAbstractMoveDialog(QWidget *parent = 0);
+    explicit OCRAbstractMoveDialog(QWidget *parent = nullptr);
     /*!
      * Object contsructor.
      */
-    explicit OCRAbstractMoveDialog(bool transparent, QWidget *parent = 0);
+    explicit OCRAbstractMoveDialog(bool transparent, QWidget *parent = nullptr);
 
     virtual ~OCRAbstractMoveDialog();
 
-    /*!
-     * Get class object name.
-     */
-    static QString getClassName();
     /*!
      * Set or not draw window bound shadow.
      */

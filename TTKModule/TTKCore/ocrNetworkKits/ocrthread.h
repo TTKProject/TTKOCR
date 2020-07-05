@@ -32,7 +32,7 @@ class OCR_NETWORK_EXPORT OCRThreadItem : public QObject
 {
     Q_OBJECT
 public:
-    explicit OCRThreadItem(QObject *parent = 0)
+    explicit OCRThreadItem(QObject *parent = nullptr)
         : QObject(parent)
     {
         m_index = -1;
@@ -51,18 +51,15 @@ public:
 class OCR_NETWORK_EXPORT OCRThread : public QObject
 {
     Q_OBJECT
+    TTK_DECLARE_MODULE(OCRThread)
 public:
     /*!
      * Object contsructor.
      */
-    explicit OCRThread(QObject *parent = 0);
+    explicit OCRThread(QObject *parent = nullptr);
 
     ~OCRThread();
 
-    /*!
-     * Get class object name.
-     */
-    static QString getClassName();
     /*!
      * Start to query by thread item.
      */

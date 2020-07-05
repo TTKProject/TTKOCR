@@ -1,5 +1,5 @@
-#ifndef OCRRUNOBJECT_H
-#define OCRRUNOBJECT_H
+#ifndef MINIPROCESS_H
+#define MINIPROCESS_H
 
 /* =================================================
  * This file is part of the TTK OCR project
@@ -19,40 +19,11 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ================================================= */
 
-#include "ocrrunglobaldefine.h"
+#include "ocrextrasglobaldefine.h"
 
-class OCRRunObjectPrivate;
-
-/*! @brief The class of the ocr run object.
- * @author Greedysky <greedysky@163.com>
+/*!
+ * Set string to unicode string by format.
  */
-class OCR_RUN_EXPORT OCRRunObject : public QObject
-{
-    Q_OBJECT
-public:
-    /*!
-     * Object contsructor.
-     */
-    explicit OCRRunObject(QObject *parent = nullptr);
+OCR_EXTRAS_EXPORT void killProcessByName(const QStringList &origin);
 
-    /*!
-     * Check current setting file's validation.
-     */
-    void checkValid();
-    /*!
-     * To run main window.
-     */
-    void run(int argc, char **argv);
-
-private Q_SLOTS:
-    /*!
-     * Run finished.
-     */
-    void finished(int code);
-
-private:
-   TTK_DECLARE_PRIVATE(OCRRunObject)
-
-};
-
-#endif // OCRRUNOBJECT_H
+#endif

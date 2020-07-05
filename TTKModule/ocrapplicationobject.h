@@ -30,18 +30,14 @@ class QPropertyAnimation;
 class OCR_GUI_EXPORT OCRApplicationObject : public QObject
 {
     Q_OBJECT
+    TTK_DECLARE_MODULE(OCRApplicationObject)
 public:
     /*!
      * Object contsructor.
      */
-    explicit OCRApplicationObject(QObject *parent = 0);
+    explicit OCRApplicationObject(QObject *parent = nullptr);
 
     virtual ~OCRApplicationObject();
-
-    /*!
-     * Get class object name.
-     */
-    static QString getClassName();
 
     /*!
      * Get class object instance.

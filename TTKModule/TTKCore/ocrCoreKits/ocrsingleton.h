@@ -30,15 +30,12 @@ template <typename T>
  */
 class OCR_CORE_EXPORT OCRSingleton
 {
+    TTK_DECLARE_MODULE(OCRSingleton)
 public:
     /*!
      * Get object instance ptr.
      */
     static T* createInstance();
-    /*!
-     * Get class object name.
-     */
-    static QString getClassName();
 
 private:
     /*!
@@ -78,12 +75,6 @@ T* OCRSingleton<T>::createInstance()
     return m_instance.data();
 }
 
-template<typename T>
-QString OCRSingleton<T>::getClassName()
-{
-    return "OCRSingleton";
-}
-
     ////////////////////////////////////////////////////////////////
     ///                                                           //
     ///              Singleton Macro                              //
@@ -92,7 +83,7 @@ QString OCRSingleton<T>::getClassName()
 
 ////Class that will implement the singleton mode,
 ////must use the macro in it's delare file
-#define DECLARE_SINGLETON_CLASS( Class )             \
+#define DECLARE_SINGLETON_CLASS(Class)             \
     friend class OCRSingleton<Class>;              \
     friend struct QScopedPointerDeleter<Class>;
 

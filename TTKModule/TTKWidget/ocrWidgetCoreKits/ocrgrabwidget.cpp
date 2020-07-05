@@ -20,7 +20,7 @@ OCRGrabWidget::OCRGrabWidget(QWidget *parent)
     setAttribute(Qt::WA_DeleteOnClose, true);
     setAttribute(Qt::WA_QuitOnClose, true);
 
-    setWindowFlags( Qt::Widget | Qt::FramelessWindowHint );
+    setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
     resize(QApplication::desktop()->width(), QApplication::desktop()->height());
     setCursor(Qt::CrossCursor);
     m_isDrawing = false;
@@ -32,11 +32,6 @@ OCRGrabWidget::OCRGrabWidget(QWidget *parent)
     m_originPixmap = QApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId(),
                                          0, 0, width(), height());
 #endif
-}
-
-QString OCRGrabWidget::getClassName()
-{
-    return staticMetaObject.className();
 }
 
 void OCRGrabWidget::mouseMoveEvent(QMouseEvent *event)

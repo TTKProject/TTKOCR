@@ -19,7 +19,6 @@
  * with this program; If not, see <http://www.gnu.org/licenses/>.
  ================================================= */
 
-#include <QDebug>
 #include <QtTest/QTest>
 #include <QSharedPointer>
 #include "ocrobject.h"
@@ -82,10 +81,7 @@ public:
         m_child->setObjectName(name);
         OCRAutoTest::addTest(m_child.data());
     }
-    static QString getClassName()
-    {
-        return "OCRTest";
-    }
+
 };
 
 #define DECLARE_TEST(className) static OCRTest<className> t(#className);

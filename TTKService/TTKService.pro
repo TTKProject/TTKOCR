@@ -23,30 +23,22 @@ contains(CONFIG, TTK_BUILD_LIB){
 }
 
 CONFIG += TTK_NO_MSVC_LINK_NEED
-win32{
-    msvc{
-        CONFIG -= TTK_NO_MSVC_LINK_NEED
-    }
+win32:msvc{
+    CONFIG -= TTK_NO_MSVC_LINK_NEED
 }
-include(../TTKOCR.pri)
+
+include($$PWD/../TTKOCR.pri)
 unix:VERSION += $$TTKOCR
 
-win32{
-    TARGET = ../../bin/$$TTKOCR/TTKService
-    LIBS += -L../bin/$$TTKOCR -lTTKCore -lTTKDumper
-}
-unix{
-    TARGET = ../lib/$$TTKOCR/TTKService
-    LIBS += -L./lib/$$TTKOCR -lTTKCore -lTTKDumper
-}
+TARGET = TTKService
 
+LIBS += -L$$DESTDIR -lTTKCore -lTTKDumper
 
-INCLUDEPATH += ../TTKModule
+INCLUDEPATH += $$PWD/../TTKModule
 
 !contains(CONFIG, TTK_NO_MSVC_LINK_NEED){
 HEADERS  += \
-    ../TTKModule/ocrapplication.h
-
+    $$PWD/../TTKModule/ocrapplication.h
 }
 
 SOURCES += \

@@ -42,6 +42,7 @@ struct OCR_WIDGET_EXPORT MoveResizeStruct
 class OCR_WIDGET_EXPORT OCRAbstractMoveResizeWidget : public QWidget
 {
     Q_OBJECT
+    TTK_DECLARE_MODULE(OCRAbstractMoveResizeWidget)
 public:
     enum Direction
     {
@@ -58,12 +59,7 @@ public:
     /*!
      * Object contsructor.
      */
-    explicit OCRAbstractMoveResizeWidget(QWidget *parent = 0);
-
-    /*!
-     * Get class object name.
-     */
-    static QString getClassName();
+    explicit OCRAbstractMoveResizeWidget(QWidget *parent = nullptr);
 
 protected:
     /*!
