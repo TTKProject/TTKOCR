@@ -1,6 +1,6 @@
 # =================================================
 # * This file is part of the TTK OCR project
-# * Copyright (C) 2015 - 2020 Greedysky Studio
+# * Copyright (C) 2015 - 2021 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -20,10 +20,9 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 include($$PWD/../../TTKVersion.pri)
-unix:VERSION += $$TTKOCR
+CONFIG += plugin lib
 
-win32:DESTDIR = $$OUT_PWD/../../bin/$$TTKOCR
-unix:DESTDIR = $$OUT_PWD/../../lib/$$TTKOCR
+DESTDIR = $$OUT_PWD/../../bin/$$TTKOCR
 TARGET = TTKExtras
 
 TEMPLATE = lib

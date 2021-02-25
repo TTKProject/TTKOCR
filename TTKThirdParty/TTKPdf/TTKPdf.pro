@@ -1,6 +1,6 @@
 # =================================================
 # * This file is part of the TTK OCR project
-# * Copyright (C) 2015 - 2020 Greedysky Studio
+# * Copyright (C) 2015 - 2021 Greedysky Studio
 #
 # * This program is free software; you can redistribute it and/or modify
 # * it under the terms of the GNU General Public License as published by
@@ -24,14 +24,12 @@ TEMPLATE = lib
 include($$PWD/../../TTKVersion.pri)
 include($$PWD/../../TTKBuild.pri)
 
-win32:DESTDIR = $$OUT_PWD/../../bin/$$TTKPdf
-unix:DESTDIR = $$OUT_PWD/../../lib/$$TTKPdf
+DESTDIR = $$OUT_PWD/../../bin/$$TTKPdf
 TARGET = TTKPdf
 
 LIBS += -L$$DESTDIR -lmupdf -lfreetype -ljbig2dec -ljpeg -lmujs -lopenjpeg -lz
 
-CONFIG       += warn_off
-unix:VERSION += 1.0.0
+CONFIG += plugin lib
 
 INCLUDEPATH += $$PWD \
                $$PWD/include \
